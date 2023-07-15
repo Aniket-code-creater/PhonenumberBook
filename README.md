@@ -21,4 +21,4 @@ The following backend APIs are provided:
 ### 8. DELETE /contacts/delete/one/number/{id} - Delete a specific phone number from a contact.
 ### 9. DELETE /contacts/delete/contact/{id} - Delete a contact by contact ID.
 
- <img src="https://ibb.co/Hxg6cGv" alt="">
+ <img src="https://ibb.co/Hxg6cGv" alt="image">
