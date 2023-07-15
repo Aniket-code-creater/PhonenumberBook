@@ -44,6 +44,17 @@ public class GlobalExceptionHandler {
 		
 	}
 	
+	@ExceptionHandler(ContactalreadyExitsException.class)
+	public ResponseEntity<ErrorDetails> ContactalreadyExitsException(ContactalreadyExitsException nfd, WebRequest wf){
+		ErrorDetails eDetails= new ErrorDetails();
+		eDetails.setTimestamp(LocalDate.now());
+		eDetails.setMessage(nfd.getMessage());
+		eDetails.setDetail(wf.getDescription(false));
+		
+		return new ResponseEntity<>(eDetails,HttpStatus.BAD_REQUEST);
+		
+	}
+	
 	
 
 }

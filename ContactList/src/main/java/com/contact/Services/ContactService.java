@@ -5,13 +5,14 @@ import java.util.List;
 
 import com.contact.Entity.Contact;
 import com.contact.Exceptions.ContactNotFoundException;
+import com.contact.Exceptions.ContactalreadyExitsException;
 import com.contact.Exceptions.NameNotFoundException;
 import com.contact.Exceptions.NumberNotFoundException;
 
 public interface ContactService {
 	
 	//Method for Add Contact Number
-	public Contact addContact(Contact contact);
+	public Contact addContact(Contact contact) throws ContactalreadyExitsException;
 	
 	//Method for Find Contact by contact Id 
 	public Contact findContactbyid(Integer id) throws ContactNotFoundException;
@@ -29,7 +30,7 @@ public interface ContactService {
 	
 	
 	//MEthod for update Existing Contact Details
-	public Contact updateContactdetails(Contact contact) throws ContactNotFoundException;
+	public Contact updateContactdetails(Contact contact, Integer id) throws ContactNotFoundException;
 	
 	
 	//Method for Add  One More Contact Number in Existing Contact 

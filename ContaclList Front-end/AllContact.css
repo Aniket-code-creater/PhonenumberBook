@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+  h1, h2 {
+    color: #333;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+.section {
+    margin-bottom: 30px;
+  }

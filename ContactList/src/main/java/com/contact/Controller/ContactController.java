@@ -3,9 +3,11 @@ package com.contact.Controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.id.IntegralDataTypeHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +25,7 @@ import com.contact.Services.ContactService;
 @RestController
 //Base URL
 @RequestMapping("/contacts")
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 public class ContactController {
 	
 	@Autowired
@@ -74,11 +77,11 @@ public class ContactController {
 		return new ResponseEntity<>(list, HttpStatus.OK);
 	}
 	
-	@PostMapping("/update")
-	public ResponseEntity<Contact> UpdateContactDetails(@RequestBody Contact contact){
+	@PostMapping("/update/{id}")
+	public ResponseEntity<Contact> UpdateContactDetails(@RequestBody Contact contact, @PathVariable Integer id){
 		
 		//Update Contact Details
-		Contact c1=contactService.updateContactdetails(contact);
+		Contact c1=contactService.updateContactdetails(contact, id);
 		return new ResponseEntity<>(c1, HttpStatus.OK);
 	}
 	

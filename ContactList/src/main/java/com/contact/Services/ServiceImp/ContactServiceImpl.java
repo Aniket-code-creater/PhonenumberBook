@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.contact.Entity.Contact;
 import com.contact.Exceptions.ContactNotFoundException;
+import com.contact.Exceptions.ContactalreadyExitsException;
 import com.contact.Exceptions.NameNotFoundException;
 import com.contact.Exceptions.NumberNotFoundException;
 import com.contact.Repository.ContactRepository;
@@ -21,11 +22,25 @@ public class ContactServiceImpl implements ContactService {
 	private ContactRepository contactRepository;
 
 	@Override
-	public Contact addContact(Contact contact) {
+	public Contact addContact(Contact contact) throws ContactalreadyExitsException {
 		// TODO Auto-generated method stub
 		// Add a new contact to the database
-		Contact c1=contactRepository.save(contact);
-		return c1;
+		List<String> num=contact.getPhoneNumbers();
+//		int i=0;
+		Contact c1= new Contact();
+		for(String n:num) {
+			if(contactRepository.findByPhoneNumbersContaining(n).isEmpty()) {
+				c1=contactRepository.save(contact);
+				return c1;
+			}else {
+				throw new ContactalreadyExitsException("Contact Number Alraedy Present in the list");
+			}
+//			i++;
+		}
+
+		return contact;
+		
+		
 	}
 
 	@Override
@@ -79,9 +94,9 @@ public class ContactServiceImpl implements ContactService {
 	}
 
 	@Override
-	public Contact updateContactdetails(Contact contact) throws ContactNotFoundException {
+	public Contact updateContactdetails(Contact contact, Integer id) throws ContactNotFoundException {
 		// TODO Auto-generated method stub
-		Optional<Contact> opt=contactRepository.findById(contact.getId());
+		Optional<Contact> opt=contactRepository.findById(id);
 		
 		//Check contact is Empty or not
 		if(opt.isPresent()) {
