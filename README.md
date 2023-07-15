@@ -6,3 +6,17 @@
 #### Able to search contacts by phone number.
 #### Able to update first name, last name, email, and phone numbers.
 #### Able to add more phone numbers or delete existing ones.
+
+
+## Backend APIs
+The following backend APIs are provided:
+
+### 1. POST /contacts/createcontact - Create a contact.
+### 2. GET /contacts/findById/{id} - Get a contact by contact ID.
+### 3. GET /contacts/search/name/{firstname} - Search contacts by first name.
+### 4. GET /contacts/search/number/{phoneNumber} - Search contacts by phone number.
+### 5. GET /contacts/allcontacts - Get all contacts.
+### 6. POST /contacts/update/{id} - Update a contact by contact ID.
+### 7. POST /contacts/add/newnumber/{id} - Add a new phone number to an existing contact.
+### 8. DELETE /contacts/delete/one/number/{id} - Delete a specific phone number from a contact.
+### 9. DELETE /contacts/delete/contact/{id} - Delete a contact by contact ID.
