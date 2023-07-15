@@ -20,3 +20,5 @@ The following backend APIs are provided:
 ### 7. POST /contacts/add/newnumber/{id} - Add a new phone number to an existing contact.
 ### 8. DELETE /contacts/delete/one/number/{id} - Delete a specific phone number from a contact.
 ### 9. DELETE /contacts/delete/contact/{id} - Delete a contact by contact ID.
+
+ <img src="https://ibb.co/Hxg6cGv" alt="">
